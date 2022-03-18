@@ -1,0 +1,64 @@
+.container-landing {
+  /* Take full size */
+  height: 790px;
+  width: 100%;
+
+  /* Stick to the top */
+  position: sticky;
+  top: 0;
+}
+
+.container-mission {
+  /* Take full size */
+  height: 790px;
+  width: 100%;
+
+  /* Stick to the top */
+  position: sticky;
+  top: 0;
+}
+
+.container-features {
+  /* Take full size */
+  height: 790px;
+  width: 100%;
+
+  /* Stick to the top */
+  position: sticky;
+  top: 0;
+}
+
+.container-roadmap {
+  /* Take full size */
+  height: 790px;
+  width: 100%;
+
+  /* Stick to the top */
+  position: sticky;
+  top: 0;
+}
+
+.container-team {
+  /* Take full size */
+  height: 790px;
+  width: 100%;
+
+  /* Stick to the top */
+  position: sticky;
+  top: 0;
+}
+
+.container-faq {
+  /* Take full size */
+  height: 790px;
+  width: 100%;
+
+  /* Stick to the top */
+  position: sticky;
+  top: 0;
+}
+
+.Home {
+  width: 100%;
+  top: 50px;
+}

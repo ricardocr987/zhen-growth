@@ -1,0 +1,8 @@
+.faq-box {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center !important;
+    align-items: center;
+    font-family: 'neuropol' !important;
+  }

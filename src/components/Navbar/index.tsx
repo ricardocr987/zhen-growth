@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
-import {AppBar, Box, Grid, Toolbar, Typography, Tabs, Tab, useTheme, useMediaQuery} from "@mui/material"
+import {AppBar, Box, Grid, Toolbar, Typography, useTheme, useMediaQuery} from "@mui/material"
 import DrawerComp from "../Drawer";
-import {Link} from "react-router-dom";
+import {Link} from "react-scroll";
 import ConnectWallet from "./connectWallet";
+require('./Navbar.css');
 
 interface NavProps{
     NavItems: any;
@@ -29,23 +30,16 @@ export const Navbar = ({NavItems}: NavProps) => {
                 LOGO
               </Typography>
             </Grid>
-            <Grid item xs={6}>
-              <Tabs 
-                indicatorColor="secondary" 
-                textColor="inherit" 
-                value={value} 
-                onChange={(e,val)=> setValue(val)}
-              >
+            <Grid item xs={7} sx={{display: 'flex'}}>
               {NavItems.map((route: any) =>
-                <Tab key={route.path} label={route.name} component={Link} to={`/${route.name}`}>
-                    {route.name}
-                </Tab>              
+                <Link className = "nav-item" to={route.ref} spy={true} smooth={true} offset={100}>
+                  {route.label}
+                </Link>
               )}
-              </Tabs>
             </Grid>
             <Grid item xs={1}>
             </Grid>
-            <Grid item xs={3}>
+            <Grid item xs={2}>
               <Box display="flex">
                 <ConnectWallet/>
               </Box>
