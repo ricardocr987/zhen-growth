@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
-import {AppBar, Box, Grid, Toolbar, Typography, useTheme, useMediaQuery} from "@mui/material"
-import DrawerComp from "../Drawer";
+import React, {useEffect, useState} from 'react';
+import Sidebar from "../Sidebar";
 import {Link} from "react-scroll";
 import ConnectWallet from "./connectWallet";
+import {Row, Col} from 'react-bootstrap';
+import {FaBars} from 'react-icons/fa'
 require('./Navbar.css');
 
 interface NavProps{
@@ -10,44 +11,53 @@ interface NavProps{
 }
 
 export const Navbar = ({NavItems}: NavProps) => {
-  const [value, setValue] = useState();
-  const theme = useTheme();
-  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
+  
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar = () => setSidebar(!sidebar);
+
+
+  const changeBackground = () => {
+    if(window.scrollY >= 80) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  }
+
+  const [navbar, setNavbar] = useState(false);
+  window.addEventListener('scroll', changeBackground);
+
   return (
     <>
-      <AppBar sx={{backgroundImage: 'linear-gradient(90deg, rgba(215,79,213,1) 0%, rgba(255,145,0,1) 87%, rgba(255,0,0,1) 100%)'}}>
-        <Toolbar>
-          {isMatch ? (
-          <>
-            <Typography>
+      <div className='nav'>
+        <div className={navbar ? 'navbar-container active' : 'navbar-container'}>
+          
+          <div className="navbar-logo">
               LOGO
-            </Typography>
-            <DrawerComp NavItems={NavItems}/>
-          </> ):(
-          <Grid sx={{placeItems:'center'}} container>
-            <Grid item xs={2}>
-              <Typography>
-                LOGO
-              </Typography>
-            </Grid>
-            <Grid item xs={7} sx={{display: 'flex'}}>
-              {NavItems.map((route: any) =>
-                <Link className = "nav-item" to={route.ref} spy={true} smooth={true} offset={100}>
-                  {route.label}
-                </Link>
-              )}
-            </Grid>
-            <Grid item xs={1}>
-            </Grid>
-            <Grid item xs={2}>
-              <Box display="flex">
-                <ConnectWallet/>
-              </Box>
-            </Grid>
-          </Grid>
-          )}
-        </Toolbar>
-      </AppBar>
+          </div>
+
+          <div className='mobile-icon'>
+            <FaBars onClick={showSidebar}/>
+          </div>
+          
+          <Row className={"nav-menu"}>
+            {NavItems.map((route: any) =>
+            <Col className='nav-item'>
+              <Link className='nav-links' to={route.ref} spy={true} smooth={true} offset={50}>
+                {route.label}
+              </Link>
+            </Col>
+            )}
+          </Row>
+
+          <div className='connect-wallet'>
+            <ConnectWallet/>
+          </div>
+
+
+        </div>
+      </div>
+      <Sidebar NavItems={NavItems} sidebar={sidebar} showSidebar={showSidebar}/>
     </>
   )
 }

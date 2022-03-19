@@ -17,7 +17,6 @@ import {
     WalletModalProvider,
 } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from "@solana/web3.js";
-import { Route, Routes } from 'react-router-dom';
 import Home from './pages';
 import Loader from './components/Loader'
 
@@ -63,7 +62,7 @@ export function Paths() {
           <WalletProvider wallets={wallets} autoConnect>
             <WalletModalProvider>
               <Providers>
-                  <Home/>
+                <Home/>
               </Providers>
             </WalletModalProvider>
           </WalletProvider>
