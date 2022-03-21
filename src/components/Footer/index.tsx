@@ -1,5 +1,5 @@
 import { FaTwitter, FaDiscord } from 'react-icons/fa'
-const s = require('./index.css');
+const s = require('./Footer.css');
 
 export const Footer = () => {
 return (

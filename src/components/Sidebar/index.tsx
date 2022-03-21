@@ -1,5 +1,6 @@
 import {AiOutlineClose} from 'react-icons/ai'
 import {Link} from "react-scroll";
+import { FaTwitter, FaDiscord } from 'react-icons/fa'
 require('./Sidebar.css');
 
 interface NavProps{
@@ -18,13 +19,16 @@ export const Sidebar = ({NavItems, sidebar, showSidebar}: NavProps) => {
                 <div className='sidebar-wrapper'>
                     {NavItems.map((route: any) =>
                     <div className='sidebar-menu'>
-                        <Link onClick={showSidebar} className='sidebar-links' to={route.ref} spy={true} smooth={true} offset={50}>
+                        <Link onClick={showSidebar} className='sidebar-links' to={route.ref} spy={true} smooth={true} offset={-90}>
                             {route.label}
                         </Link>
                     </div>
                     )}
                     <div className='social-links'>
-
+                        <ul className='row'>
+                            <li><a href="https://twitter.com/Riki__sol"><i><FaTwitter /></i></a></li>
+                            <li><a href="#"><i><FaDiscord /></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

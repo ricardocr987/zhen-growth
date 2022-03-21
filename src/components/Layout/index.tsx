@@ -18,7 +18,7 @@ export const AppLayout = React.memo((props: any) => {
     <>
       <Navbar NavItems={NavItems}/>
       <Layout>
-        <Content style={{ overflow: 'scroll' }}>
+        <Content>
           {props.children}
         </Content>
         <Footer/>

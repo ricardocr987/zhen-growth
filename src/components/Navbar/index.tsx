@@ -30,23 +30,30 @@ export const Navbar = ({NavItems}: NavProps) => {
   return (
     <>
       <div className='nav'>
-        <div className={navbar ? 'navbar-container active' : 'navbar-container'}>
+        <div className={ sidebar ? 
+              'hide'
+            :
+              navbar ? 
+                'navbar-container active' 
+              : 
+                'navbar-container'
+          }>
           
           <div className="navbar-logo">
               LOGO
           </div>
 
-          <div className='mobile-icon'>
+          <div className={'mobile-icon'}>
             <FaBars onClick={showSidebar}/>
           </div>
           
           <Row className={"nav-menu"}>
             {NavItems.map((route: any) =>
-            <Col className='nav-item'>
-              <Link className='nav-links' to={route.ref} spy={true} smooth={true} offset={50}>
-                {route.label}
-              </Link>
-            </Col>
+              <Col className='nav-item'>
+                <Link className='nav-links' to={route.ref} spy={true} smooth={true} offset={-90}>
+                  {route.label}
+                </Link>
+              </Col>
             )}
           </Row>
 
