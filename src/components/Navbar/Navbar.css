@@ -20,8 +20,6 @@
     padding: 0 24px;
 }
 
-
-
 .navbar-container.active {
     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(98,98,98,1) 100%);}
 
@@ -55,7 +53,7 @@
 
 .nav-links {
     position: relative;
-    width: 140%;
+    width: 160%;
     height: 45px;
     display: flex;
     justify-content: center;
