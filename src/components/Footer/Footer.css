@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(98,98,98,1) 100%);
+    background: linear-gradient(180deg, black 0%, rgb(61, 61, 61) 100%);
 }
 
 .color__section::before{
