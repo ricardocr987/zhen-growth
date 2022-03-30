@@ -15,7 +15,7 @@ export const Navbar = ({NavItems}: NavProps) => {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
-
+ 
   const changeBackground = () => {
     if(window.scrollY >= 80) {
       setNavbar(true);
